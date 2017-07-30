@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
-    "build": "NODE_ENV=production webpack --config webpack.config.js",
+    "build": "npm run clean && NODE_ENV=production webpack --config webpack.config.js",
     "clean": "rm -rf ./dist/*",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint -c tslint.json \"./src/*.ts*\""
@@ -20,10 +20,12 @@
   "author": "Aaron Leo Cooper <aaronleocooper@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^8.0.17",
     "html-webpack-plugin": "^2.29.0",
     "ts-loader": "^2.3.1",
     "tslint": "^5.5.0",
     "typescript": "^2.4.2",
+    "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.6.1"
   }

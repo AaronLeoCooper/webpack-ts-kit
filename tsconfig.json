@@ -2,7 +2,9 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
-    "module": "system",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
     "baseUrl": "src",
     "declaration": false,
     "noImplicitAny": true,
@@ -11,8 +13,9 @@
     "sourceMap": true,
     "target": "es5",
     "lib": [
-      "es2016",
-      "dom"
+      "dom",
+      "es5",
+      "es2016"
     ]
   },
   "include": [

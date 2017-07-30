@@ -1,14 +1,40 @@
+/**
+ * webpack.config.js
+ *
+ * This config serves as both the development and production
+ * Webpack config. The difference is that it's consumed by
+ * either webpack-dev-server (development) or webpack itself
+ * (production)
+ */
+
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
+/**
+ * Envs
+ */
 const ENV = process.env.NODE_ENV;
 const IS_PROD = ENV === 'production';
 
+/**
+ * Directories
+ */
 const srcDirRelative = './src';
 const distDirRelative = './dist';
 
 const srcDir = path.join(__dirname, srcDirRelative);
 const distDir = path.join(__dirname, distDirRelative);
+
+/**
+ * Plugins
+ */
+const definePlugin = new webpack.DefinePlugin({
+  'process.env.NODE_ENV': JSON.stringify(ENV)
+});
+
+const noEmitOnErrorsPlugin = new webpack.NoEmitOnErrorsPlugin();
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
   title: 'Sample TypeScript App',
@@ -16,8 +42,19 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
   hash: true
 });
 
+const uglifyJsPlugin = new UglifyJSPlugin();
+
+const prodPlugins = IS_PROD
+  ? [
+    uglifyJsPlugin
+  ]
+  : [];
+
+/**
+ * Export config
+ */
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: IS_PROD ? 'cheap-source-map' : 'eval-source-map',
   entry: `${srcDirRelative}/index.ts`,
   output: {
     path: distDir,
@@ -36,7 +73,10 @@ module.exports = {
     ]
   },
   plugins: [
-    htmlWebpackPlugin
+    definePlugin,
+    noEmitOnErrorsPlugin,
+    htmlWebpackPlugin,
+    ...prodPlugins
   ],
   devServer: {
     contentBase: path.join(srcDir, 'assets'),

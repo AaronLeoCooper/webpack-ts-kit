@@ -79,6 +79,7 @@
     ],
     "radix": true,
     "semicolon": [
+      true,
       "always"
     ],
     "triple-equals": [
@@ -105,6 +106,7 @@
       "check-operator",
       "check-separator",
       "check-type"
-    ]
+    ],
+    "space-before-function-paren": true
   }
 }

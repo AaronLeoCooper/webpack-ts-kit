@@ -1,22 +1,14 @@
 # TypeScript Webpack Starter Project
 
-*The name says it all!*
-
 This is a super simple, easy peasy lemon squeezy starter project for
 TypeScript, using Webpack 3 for development & building and TSLint for
 code quality.
 
-## Status
+## Key Features
 
-This little project/boilerplate is still in development and I wouldn't
-*yet* recommend it for primetime production apps, and will alsmost certainly
-not yet cover all bases when it comes to writing web apps.
-
-However, the goal for this project is to eventually make it into a
-developer's friend for fast development and provide convenient tooling for
-optimised, production-ready static assets.
-
-Suggestions and PRs are welcome!
+- Webpack v3+
+- TypeScript v2.4+ (dynamic imports to provide convenient bundle splitting)
+- TSLint
 
 ## Commands
 
@@ -30,6 +22,18 @@ watching your files and continuously reloading when files change:
 `npm run test` — Run tests with coverage output shown
 
 `npm run lint` — Run TSLint on files in the `src` directory
+
+## Project Status
+
+This little project/boilerplate is still in development and I wouldn't
+*yet* recommend it for primetime production apps, and will alsmost certainly
+not yet cover all bases when it comes to writing web apps.
+
+However, the goal for this project is to eventually make it into a
+developer's friend for fast development and provide convenient tooling for
+optimised, production-ready static assets.
+
+Suggestions and PRs are welcome!
 
 ## Must-have goals checklist
 
