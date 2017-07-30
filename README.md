@@ -9,9 +9,12 @@ code quality.
 ## Status
 
 This little project/boilerplate is still in development and I wouldn't
-*yet* recommend it for primetime production apps, however the goal for this
-project is to make it into a developer's friend for fast development and
-provide convenient tooling for optimised, production-ready static assets.
+*yet* recommend it for primetime production apps, and will alsmost certainly
+not yet cover all bases when it comes to writing web apps.
+
+However, the goal for this project is to eventually make it into a
+developer's friend for fast development and provide convenient tooling for
+optimised, production-ready static assets.
 
 Suggestions and PRs are welcome!
 
@@ -28,15 +31,28 @@ watching your files and continuously reloading when files change:
 
 `npm run lint` — Run TSLint on files in the `src` directory
 
+## Must-have goals checklist
+
+- [ ] Finish getting Webpack config set up with the desired features
+  - Stylesheet loader (SASS, CSS Modules, PostCSS)
+  - Static asset loaders (images, fonts, etc...)
+- [ ] Add testing suite with full TypeScript support
+- [ ] Research & add common TypeScript definitions modules
+
+## "Optimistic" goals checklist
+
+- [ ] CLI tool for code/module generation
+- [ ] Easy swapping of Webpack loaders in config
+
 ## About
 
-This was created in a couple of spare hours for fun as a primer to
-Webpack v3's new features.
+This was first created in a couple of spare hours for fun as a primer to
+Webpack v3 & TypeScript 2.4's new features.
 
-This just goes to show that both TypeScript and Webpack have come a
-long way (and keept getting better) towards being as developer-friendly
-as possible, giving us amazing tooling for little overhead when getting
-setup.
+The speed at which it's now possible to set up a Webpack-based dev/prod
+setup goes to show that Webpack has come a long way (and keeps on going)
+towards being as developer-friendly as possible, giving us amazing tooling
+for little overhead during the initial setup.
 
 **Developed by [Aaron Leo Cooper](http://webdevdiaries.com) for
 [2359Media](https://2359media.com)**
