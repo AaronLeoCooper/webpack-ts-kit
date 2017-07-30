@@ -1,5 +1,9 @@
 alert('loaded!');
 
+if (process.env.NODE_ENV === 'production') {
+
+}
+
 class Other {
   varr = 5
 }

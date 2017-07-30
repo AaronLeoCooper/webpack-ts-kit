@@ -6,6 +6,15 @@ This is a super simple, easy peasy lemon squeezy starter project for
 TypeScript, using Webpack 3 for development & building and TSLint for
 code quality.
 
+## Status
+
+This little project/boilerplate is still in development and I wouldn't
+*yet* recommend it for primetime production apps, however the goal for this
+project is to make it into a developer's friend for fast development and
+provide convenient tooling for optimised, production-ready static assets.
+
+Suggestions and PRs are welcome!
+
 ## Commands
 
 `npm start` — Run your local development server
