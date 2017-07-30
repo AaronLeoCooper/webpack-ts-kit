@@ -38,4 +38,5 @@ long way (and keept getting better) towards being as developer-friendly
 as possible, giving us amazing tooling for little overhead when getting
 setup.
 
-**Developed by for [2359Media](https://2359media.com)**
+**Developed by [Aaron Leo Cooper](http://webdevdiaries.com) for
+[2359Media](https://2359media.com)**
