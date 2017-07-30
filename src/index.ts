@@ -27,7 +27,7 @@ interface TestInt {
  *
  * @class Other
  */
-class Other implements TestInt {
+export class Other implements TestInt {
 
   public varr = 5;
 
@@ -39,7 +39,7 @@ class Other implements TestInt {
  * @class BigBucks
  * @extends {Other}
  */
-class BigBucks extends Other {
+export class BigBucks extends Other {
 
   static static = 2;
 
@@ -73,6 +73,4 @@ class BigBucks extends Other {
 
 }
 
-const app = new BigBucks([ 'testing', '1' ]);
-
-app.feedMe('fruit');
+export const app = new BigBucks([ 'testing', '1' ]);

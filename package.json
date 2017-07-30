@@ -6,9 +6,10 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
     "build": "npm run clean && NODE_ENV=production webpack --config webpack.config.js",
-    "clean": "rm -rf ./dist/*",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "tslint -c tslint.json \"./src/*.ts*\""
+    "clean": "rm -rf ./dist",
+    "lint": "tslint -c tslint.json \"./src/*.ts*\"",
+    "test": "NODE_ENV=test mocha -r ts-node/register \"./src/**/*.spec.ts\"",
+    "test:watch": ""
   },
   "keywords": [
     "webpack",
@@ -20,9 +21,17 @@
   "author": "Aaron Leo Cooper <aaronleocooper@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/chai": "^4.0.1",
+    "@types/mocha": "^2.2.41",
     "@types/node": "^8.0.17",
+    "@types/sinon": "^2.3.3",
+    "chai": "^4.1.0",
     "html-webpack-plugin": "^2.29.0",
+    "mocha": "^3.4.2",
+    "nyc": "^11.1.0",
+    "sinon": "^2.4.1",
     "ts-loader": "^2.3.1",
+    "ts-node": "^3.3.0",
     "tslint": "^5.5.0",
     "typescript": "^2.4.2",
     "uglifyjs-webpack-plugin": "^0.4.6",

@@ -16,12 +16,11 @@ code quality.
 
 `npm run build` — Compile your app into static, production-ready files
 
-The following commands also support adding `:watch` to the end to start
-watching your files and continuously reloading when files change:
+`npm run lint` — Run TSLint on files in the `src` directory
 
 `npm run test` — Run tests with coverage output shown
 
-`npm run lint` — Run TSLint on files in the `src` directory
+`npm run test:watch` — Run tests continuously as files inside `src` change
 
 ## Project Status
 
