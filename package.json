@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
-    "build": "npm run clean && NODE_ENV=production webpack --config webpack.config.js",
-    "clean": "rm -rf ./dist",
-    "lint": "tslint -c tslint.json \"./src/*.ts*\"",
-    "test": "NODE_ENV=test mocha -r ts-node/register \"./src/**/*.spec.ts\"",
-    "test:watch": ""
+    "build": "npm run clean:build && NODE_ENV=production webpack --config webpack.config.js",
+    "lint": "tslint -c tslint.json --format stylish \"./src/*.ts*\"",
+    "test": "npm run clean:test && nyc mocha",
+    "test:watch": "mocha -w",
+    "clean:build": "rm -rf ./dist",
+    "clean:test": "rm -rf ./coverage"
   },
   "keywords": [
     "webpack",
@@ -20,6 +21,20 @@
   ],
   "author": "Aaron Leo Cooper <aaronleocooper@gmail.com>",
   "license": "MIT",
+  "nyc": {
+    "require": [
+      "ts-node/register"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  },
   "devDependencies": {
     "@types/chai": "^4.0.1",
     "@types/mocha": "^2.2.41",
@@ -28,8 +43,10 @@
     "chai": "^4.1.0",
     "html-webpack-plugin": "^2.29.0",
     "mocha": "^3.4.2",
+    "mocha-typescript": "^1.1.7",
     "nyc": "^11.1.0",
     "sinon": "^2.4.1",
+    "source-map-support": "^0.4.15",
     "ts-loader": "^2.3.1",
     "ts-node": "^3.3.0",
     "tslint": "^5.5.0",

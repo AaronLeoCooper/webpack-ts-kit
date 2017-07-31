@@ -1,20 +1,21 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": true,
-    "baseUrl": "src",
-    "declaration": false,
+    "baseUrl": ".",
+    "declaration": true,
+    "declarationDir": "declarations",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
+    "noEmitOnError": true,
     "target": "es5",
     "lib": [
       "dom",
       "es5",
+      "es6",
       "es2016"
     ]
   },
