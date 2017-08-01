@@ -1,21 +1,15 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "baseUrl": ".",
-    "declaration": true,
-    "declarationDir": "declarations",
     "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
     "sourceMap": true,
     "noEmitOnError": true,
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "es5",
-      "es6",
       "es2016"
     ]
   },

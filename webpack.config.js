@@ -10,7 +10,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 /**
  * Envs
@@ -42,14 +41,6 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
   hash: true
 });
 
-const uglifyJsPlugin = new UglifyJSPlugin();
-
-const prodPlugins = IS_PROD
-  ? [
-    uglifyJsPlugin
-  ]
-  : [];
-
 /**
  * Export config
  */
@@ -68,18 +59,27 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
-        include: [ srcDir ]
+        include: [ srcDir ],
+        options: {
+          compilerOptions: {
+            /**
+             * Custom ts options are required since the testing suite
+             * requires 'commonjs' modules and es6 target
+             */
+            module: 'esnext', // allows bundle splitting on dynamic imports!
+            target: 'es5'     // to transpile to browser-friendly ES5
+          }
+        }
       }
     ]
   },
   plugins: [
     definePlugin,
     noEmitOnErrorsPlugin,
-    htmlWebpackPlugin,
-    ...prodPlugins
+    htmlWebpackPlugin
   ],
   devServer: {
-    contentBase: path.join(srcDir, 'assets'),
+    contentBase: srcDir,
     compress: true,
     port: 9000
   }

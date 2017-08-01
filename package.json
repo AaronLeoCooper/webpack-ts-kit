@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
-    "build": "npm run clean:build && NODE_ENV=production webpack --config webpack.config.js",
+    "build": "npm run clean:build && webpack -p --config webpack.config.js",
     "lint": "tslint -c tslint.json --format stylish \"./src/*.ts*\"",
     "test": "npm run clean:test && nyc mocha",
     "test:watch": "mocha -w",
