@@ -1,16 +1,13 @@
 /**
- * Allowed script names
- */
-type scripts = 'dev' | 'prod';
-
-/**
  * Dynamically import a script (splits the webpack bundle)
  * @param scriptName {scripts}
  */
-const getScript = async function (scriptName: scripts): Promise<any> {
-  const script = await import('./' + scriptName);
-
-  return script;
+const getScript = async function (): Promise<any> {
+  if (process.env.NODE_ENV === 'production') {
+    return await import('./prod');
+  } else {
+    return await import('./dev');
+  }
 };
 
 /**
@@ -54,7 +51,7 @@ export class BigBucks extends Other {
       : 'dev';
 
     // Only now load an additional script module
-    getScript(scriptName)
+    getScript()
       .then(script => {
         console.log(`${scriptName} loaded`, script);
       })

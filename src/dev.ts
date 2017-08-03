@@ -1,3 +1,3 @@
 export const conf = {
-  IMPORTANT: 'things'
+  IMPORTANT: 'development things'
 };

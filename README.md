@@ -1,7 +1,7 @@
 # TypeScript Webpack Starter Project
 
 This is a super simple, easy peasy lemon squeezy starter project for
-TypeScript, using Webpack 3 for development & building and TSLint for
+TypeScript 2.4+, using Webpack 3 for development & building and TSLint for
 code quality.
 
 ## Key Features
@@ -12,11 +12,14 @@ code quality.
 
 ## Commands
 
+There's a fair few commands defined inside package.json, but these are the
+import ones to be aware of:
+
 `npm start` — Run your local development server
 
 `npm run build` — Compile your app into static, production-ready files
 
-`npm run lint` — Run TSLint on files in the `src` directory
+`npm run lint` — Run all linting scripts (TypeScript & stylesheets)
 
 `npm run test` — Run tests with coverage output shown
 
