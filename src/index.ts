@@ -1,6 +1,10 @@
 /**
  * Dynamically import a script (splits the webpack bundle)
- * @param scriptName {scripts}
+ *
+ * NOTE: using string templates or string concatenation is a
+ * BIG NO NO! Always ensure you use an explicit, whole string
+ * inside import() statements, otherwise you risk the lazy-loading
+ * import producing extremely huge bundles
  */
 const getScript = async function (): Promise<any> {
   if (process.env.NODE_ENV === 'production') {
@@ -43,9 +47,6 @@ export class BigBucks extends Other {
   constructor (props: [ string ]) {
     super();
 
-    console.log('props', props);
-    console.log('this.varr', this.varr);
-
     const scriptName = process.env.NODE_ENV === 'production'
       ? 'prod'
       : 'dev';
@@ -60,12 +61,16 @@ export class BigBucks extends Other {
       });
   }
 
-  public feedMe (food: string): void {
-    console.log(`fed ${food} !`);
+  public feedMe (food: string): string {
+    return `fed ${food} !`;
   }
 
-  private shutUp (): void {
-    console.log('shutting up..');
+  public shutUpProxy (): string {
+    return this.shutUp();
+  }
+
+  private shutUp (): string {
+    return 'shutting up..';
   }
 
 }

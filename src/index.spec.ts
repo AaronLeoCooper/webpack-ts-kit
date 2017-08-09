@@ -4,26 +4,21 @@ import { stub } from 'sinon';
 
 import { app } from './index';
 
-suite('app', () => {
+@suite('app')
+default class {
 
-  test('#feedMe()', () => {
-    const log = stub(console, 'log');
+  @test
+  feedMe () {
+    const actual = app.feedMe('test');
 
-    app.feedMe('test');
+    assert.equal(actual, 'fed test !', 'calls console.log with correct value');
+  }
 
-    assert.isTrue(log.calledWith('fed test !'), 'calls console.log with correct value');
+  @test
+  shutUpProxy () {
+    const actual = app.shutUpProxy();
 
-    log.restore();
-  });
+    assert.equal(actual, 'shutting up..', 'calls console.log with shutUp() value');
+  }
 
-  test('.shutUp()', () => {
-    const log = stub(console, 'log');
-
-    // app.shutUp();
-
-
-
-    log.restore();
-  });
-
-});
+}

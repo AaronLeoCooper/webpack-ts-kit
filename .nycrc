@@ -1,0 +1,17 @@
+{
+  "require": [
+    "ts-node/register"
+  ],
+  "extension": [
+    ".ts"
+  ],
+  "reporter": [
+    "lcov",
+    "text"
+  ],
+  "sourceMap": true,
+  "instrument": true,
+  "exclude": [
+    "src/**/*.spec.*"
+  ]
+}
