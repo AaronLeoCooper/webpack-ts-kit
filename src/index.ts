@@ -1,3 +1,7 @@
+import * as styles from './index.style.scss';
+
+console.log('styles', styles);
+
 /**
  * Dynamically import a script (splits the webpack bundle)
  *

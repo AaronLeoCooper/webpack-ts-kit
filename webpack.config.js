@@ -77,27 +77,24 @@ module.exports = {
         test: /\.tsx?$/,
         include: srcDir,
         exclude: /node_modules/,
+        loader: 'ts-loader',
+        options: {
+          compilerOptions: {
+            module: 'esnext', // allows bundle splitting via dynamic imports!
+            target: 'es5'     // output browser-friendly JS
+          }
+        }
+      },
+      {
+        test: /\.scss$/,
+        include: srcDir,
         use: [
+          'style-loader',
           {
-            /**
-             * 2. Transpile ES6 + dynamic imports into ES5
-             *    (smaller bundle sizes than ts-loader alone)
-             */
-            loader: 'babel-loader',
+            loader: 'typings-for-css-modules-loader',
             options: {
-              presets: [ 'es2015' ],
-              plugins: [ 'babel-plugin-syntax-dynamic-import' ]
-            }
-          },
-          {
-            /**
-             * 1. Transpile TypeScript into ES6 + dynamic imports
-             */
-            loader: 'ts-loader',
-            options: {
-              compilerOptions: {
-                module: 'esnext'  // allows bundle splitting via dynamic imports!
-              }
+              modules: true,
+              namedExport: true
             }
           }
         ]

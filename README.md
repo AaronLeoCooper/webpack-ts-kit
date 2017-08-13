@@ -40,10 +40,10 @@ Suggestions and PRs are welcome!
 ## Must-have goals checklist
 
 - [ ] Finish getting Webpack config set up with the desired features
-  - Stylesheet loader (SASS, CSS Modules, PostCSS)
-  - Static asset loaders (images, fonts, etc...)
-- [ ] Add testing suite with full TypeScript support
+  - [ ] Stylesheet loader (SASS, CSS Modules, PostCSS)
+  - [ ] Static asset loaders (images, fonts, etc...)
 - [ ] Research & add common TypeScript definitions modules
+- [x] Add testing suite with full TypeScript support
 
 ## "Optimistic" goals checklist
 
@@ -52,13 +52,13 @@ Suggestions and PRs are welcome!
 
 ## About
 
-This was first created in a couple of spare hours for fun as a primer to
-Webpack v3 & TypeScript 2.4's new features.
+The first version of this project was created in a couple of spare hours
+for fun as a primer to Webpack 3 & TypeScript 2.4's new features.
 
 The speed at which it's now possible to set up a Webpack-based dev/prod
 setup goes to show that Webpack has come a long way (and keeps on going)
 towards being as developer-friendly as possible, giving us amazing tooling
 for little overhead during the initial setup.
 
-**Developed by [Aaron Leo Cooper](http://webdevdiaries.com) for
+**Developed by [Aaron Leo Cooper](http://webdevdiaries.com) @
 [2359Media](https://2359media.com)**
